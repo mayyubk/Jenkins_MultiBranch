@@ -2,7 +2,7 @@ pipeline
 {
 
 agent {
-  label 'DevServer'
+  any
 }
 
 parameters {
@@ -38,7 +38,7 @@ stages{
         parallel {
             stage('testA')
             {
-                agent { label 'DevServer' }
+                agent { any }
                 steps{
                     echo " This is test A"
                     sh "mvn test"
