@@ -47,7 +47,7 @@ stages{
             }
             stage('testB')
             {
-                agent { label 'DevServer' }
+                agent { any}
                 steps{
                 echo "this is test B"
                 sh "mvn test"
@@ -69,7 +69,7 @@ stages{
     {
       when { branch 'develop' 
         beforeAgent true}
-        agent { label 'DevServer' }
+        agent { any }
         steps
         {
             dir("/var/www/html")
@@ -87,7 +87,7 @@ stages{
     {
       when { branch 'master'
         beforeAgent true}
-        agent { label 'ProdServer' }
+        agent { any }
         steps
         {
              timeout(time:5, unit:'DAYS'){
